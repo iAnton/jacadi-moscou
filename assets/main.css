@@ -2,7 +2,46 @@ body {
    font-family: 'Roboto', sans-serif;
 }
 
+a {
+  text-decoration: none !important;
+  color: rgba(0, 0, 0, 0.6) !important;
+}
+
 .border-tb {
    border-top: 1px solid black;
    border-bottom: 1px solid black;
+}
+
+.j-icon {
+  display: inline-block;
+  width: 1.875rem;
+  height: 1.5625rem;
+}
+
+.btn-cart {
+  transition: all 0.3s ease-in;
+}
+.btn-cart:hover {
+  color: white;
+}
+.border-color {
+  cursor: pointer;
+  border: 2px solid blue;
+}
+.border-gray {
+  border: 1px solid gray;
+  transition: all 0.3s ease-in;
+}
+.border-gray--active {
+  background-color: #8798bf;
+}
+.border-gray:hover {
+  background-color: #8798bf;
+}
+.input-sizes {
+  text-align: center;
+  color: #575757;
+  font-size: 0.7rem;
+  text-decoration: none;
+  transition: color 0.3s, background-color 0.3s ease-in;
 }

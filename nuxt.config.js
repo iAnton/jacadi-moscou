@@ -3,9 +3,9 @@ export default {
   /*
    ** Headers of the page
    */
-  // router: {
-  //   base: '/online-shop/'
-  // },
+  router: {
+    base: '/jacadi-moscou/'
+  },
   head: {
     // titleTemplate: '%s - ' + 'Jacadi детская одежда',
     titleTemplate: 'Jacadi детская одежда',

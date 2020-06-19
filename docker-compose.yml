@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: sh -c "npm install && nmp build && npm start"
+    command: sh -c "npm install && npm build && npm start"
     ports:
       - 3005:3000
     working_dir: /usr/src/app

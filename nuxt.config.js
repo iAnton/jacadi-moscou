@@ -1,5 +1,3 @@
-import colors from 'vuetify/es5/util/colors'
-
 export default {
   mode: 'universal',
   /*
@@ -9,9 +7,6 @@ export default {
   //   base: '/online-shop/'
   // },
   head: {
-    htmlAttrs: {
-      lang: 'ru'
-    },
     titleTemplate: '%s - ' + process.env.npm_package_name,
     title: process.env.npm_package_name || '',
     meta: [
@@ -29,11 +24,6 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      // {
-      //   rel: 'stylesheet',
-      //   href:
-      //     'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900'
-      // },
       {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css?family=Material+Icons'
@@ -66,7 +56,7 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa',
+    // '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv'
   ],
@@ -80,27 +70,18 @@ export default {
    ** https://github.com/nuxt-community/vuetify-module
    */
   vuetify: {
-    customVariables: ['~/assets/variables.scss'],
+    treeShake: true,
+    // customVariables: ['~/assets/variables.scss'],
     defaultAssets: {
+      font: {
+        family: 'Open Sans'
+      },
       icons: 'mdi'
     },
-    icons: {
-      iconfont: 'mdi'
-    },
-    theme: {
-      dark: false,
-      themes: {
-        dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3
-        }
-      }
-    }
+    // icons: {
+    //   iconfont: 'mdi'
+    // },
+    theme: { disable: true }
   },
   /*
    ** Build configuration

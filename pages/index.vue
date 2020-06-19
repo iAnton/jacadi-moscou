@@ -40,14 +40,14 @@
                 class="d-flex align-center pointer"
                 @click="openDescription"
               >
-                Description<v-icon v-if="!opened.description">mdi-plus</v-icon
+                Описание<v-icon v-if="!opened.description">mdi-plus</v-icon
                 ><v-icon v-else>mdi-minus</v-icon>
               </v-col>
               <v-col
                 class="d-flex align-center pointer"
                 @click="openComposition"
               >
-                Composition<v-icon v-if="!opened.composition">mdi-plus</v-icon
+                Состав<v-icon v-if="!opened.composition">mdi-plus</v-icon
                 ><v-icon v-else>mdi-minus</v-icon>
               </v-col>
             </v-row>
@@ -56,10 +56,10 @@
             </div>
             <div v-if="opened.composition">
               <div class="mb-8">
-                Main fabric:<br />{{ article.composition.main }}<br />
+                Основа:<br />{{ article.composition.main }}<br />
               </div>
               <div>
-                Care instructions:<br />
+                Инструкция по уходу:<br />
                 <svg class="j-icon" title="Machine washable even at 30º">
                   <use xlink:href="#icon-entretien-0">
                     <svg id="icon-entretien-0" viewBox="0 0 264 235.2">
@@ -124,7 +124,7 @@
             <v-divider class="my-4"></v-divider>
             <div class="mb-4">
               <div class="mb-2">
-                Colour: <b>{{ pickedColor }}</b>
+                Цвет: <b>{{ pickedColor }}</b>
               </div>
               <div class="radio-colors d-flex">
                 <div
@@ -148,9 +148,9 @@
             <div class="mb-8">
               <div class="d-flex justify-space-between">
                 <div class="mb-2">
-                  Size: <b>{{ pickedSize }}</b>
+                  Размер: <b>{{ pickedSize }}</b>
                 </div>
-                <nuxt-link to="/">> Size Guide</nuxt-link>
+                <nuxt-link to="/">Гид по размерам</nuxt-link>
               </div>
               <div class="d-flex">
                 <div
@@ -171,27 +171,28 @@
               </div>
             </div>
             <p class="mb-0 red--text text-decoration-line-through">
-              £{{ article.price }}
+              {{ article.price }} ₽
             </p>
-            <p class="text-h5 mb-0 black--text">£{{ article.salePrice }}</p>
+            <p class="text-h5 mb-0 black--text">{{ article.salePrice }} ₽</p>
           </v-card-text>
           <v-card-actions>
             <v-row class="d-flex flex-column">
               <v-col>
                 <v-btn
                   color="#8798bf"
-                  class="white--text btn-cart"
+                  class="white--text btn-cart btn-text-initial"
                   nuxt
                   to="/"
                   tile
                   block
+                  elevation="0"
                 >
-                  Add to Bag
+                  В корзину
                 </v-btn>
               </v-col>
               <v-col>
-                <v-btn depressed tile block>
-                  <v-icon>mdi-heart</v-icon>Add to wishlist
+                <v-btn text block class="btn-text-initial">
+                  <v-icon left>mdi-heart-outline</v-icon> В избранное
                 </v-btn>
               </v-col>
             </v-row>
@@ -325,49 +326,49 @@ export default {
   data() {
     return {
       article: {
-        title: 'Girl UV protection t-shirt',
-        description: `In a UV-blocking material that will protect her skin from the sun,
-              this UV protection beach t-shirt is made from microfibre and
-              elastane. Elevated by a contrasting petal collar, it has a velcro
-              closure at the back for easy wear. This t-shirt was designed for
-              swimming at the beach or the pool, and can be worn with swim
-              bottoms or a two-piece bathing suit. Warning: must be accompanied
-              by a hat, sunglasses, and adequate UV protection on all exposed
-              skin.`,
+        title: 'Детская футболка с УФ защитой для девочки',
+        description: `В УФ-блокирующем материале, который защитит ее кожу от солнца,
+                      эта пляжная футболка с защитой от ультрафиолета изготовлена из микрофибры и
+                      эластан. Приподнятый контрастным лепестковым воротником, он имеет липучку
+                      застежка сзади для удобства ношения. Эта футболка была разработана для
+                      купание на пляже или в бассейне, а также можно носить с плаванием
+                      плавки или купальник из двух частей. Предупреждение: должен сопровождаться
+                      шляпой, солнцезащитными очками и адекватной защитой от ультрафиолета на всех открытых
+                      кожа.`,
         composition: {
-          main: '91% polyamid - 9% elastane',
+          main: '91% полиамид, 9% эластан',
           care: {}
         },
         colors: [
           {
-            name: 'PALE PINK',
+            name: 'Бледно-розовый',
             hex: '#ffe8e9'
           },
           {
-            name: 'BLUE/MULTICOL',
+            name: 'Голубой/разноцветный',
             hex: '#10a5f5'
           }
         ],
         sizes: [
           {
-            name: '03Y',
+            name: '3 Г',
             disabled: true
           },
           {
-            name: '04Y',
+            name: '4 Г',
             disabled: false
           },
           {
-            name: '06Y',
+            name: '6 Л',
             disabled: false
           },
           {
-            name: '08Y',
+            name: '8 Л',
             disabled: true
           }
         ],
-        price: '39.00',
-        salePrice: '19.00'
+        price: '3 399',
+        salePrice: '1 649'
       },
       pickedColor: null,
       pickedSize: null,

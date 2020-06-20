@@ -171,9 +171,9 @@
               </div>
             </div>
             <p class="mb-0 red--text text-decoration-line-through">
-              {{ article.price }} ₽
+              {{ article.price }} р.
             </p>
-            <p class="text-h5 mb-0 black--text">{{ article.salePrice }} ₽</p>
+            <p class="text-h5 mb-0 black--text">{{ article.salePrice }} р.</p>
           </v-card-text>
           <v-card-actions>
             <v-row class="d-flex flex-column">

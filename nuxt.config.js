@@ -4,10 +4,13 @@ export default {
    ** Headers of the page
    */
   // router: {
-  //   base: '/jacadi-moscou/'
+  //   base: '/online-shop/'
   // },
   head: {
     // titleTemplate: '%s - ' + 'Jacadi детская одежда',
+    htmlAttrs: {
+      lang: 'ru'
+    },
     titleTemplate: 'Jacadi детская одежда',
     title: process.env.npm_package_name || '',
     meta: [

@@ -12,6 +12,14 @@ a {
   border-bottom: 1px solid black;
 }
 
+.border-r {
+  border-right: 1px solid white;
+}
+
+.footer-line-height {
+  line-height: 2rem;
+}
+
 .j-icon {
   display: inline-block;
   width: 1.875rem;
@@ -29,6 +37,14 @@ a {
 
 .btn-text-initial {
   text-transform: initial !important;
+}
+
+.v-slide-group__next, .v-slide-group__prev {
+  min-width: 0px !important;
+}
+
+.bordered {
+  border: 1px solid grey;
 }
 
 .border-color {
@@ -108,10 +124,10 @@ input[type='radio'] {
   top: 64px !important;
 }
 
-.v-list-item {
+/* .v-list-item { */
   /* padding-left: 36px !important; */
   /* min-height: 10px !important; */
-}
+/* } */
 
 .pointer {
   cursor: pointer;

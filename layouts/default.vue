@@ -19,7 +19,12 @@
         >
           <template v-slot:activator>
             <v-list-item-content>
-              <v-list-item-title v-text="item.title"></v-list-item-title>
+              <v-list-item-title
+                :class="{
+                  'font-weight-bold': item.title === 'New Arrivals'
+                }"
+                v-text="item.title"
+              ></v-list-item-title>
             </v-list-item-content>
           </template>
 
@@ -36,7 +41,9 @@
         </v-list-group>
         <v-list-item @click="!drawer">
           <v-list-item-content>
-            <v-list-item-title>Sale</v-list-item-title>
+            <v-list-item-title class="red--text font-weight-bold"
+              >Sale</v-list-item-title
+            >
           </v-list-item-content>
         </v-list-item>
         <v-list-item @click="!drawer">
@@ -79,50 +86,38 @@
     </v-navigation-drawer>
     <v-app-bar app color="#8798bf" class="white--text" elevation="0">
       <v-container>
-        <v-row class="">
+        <v-row class="d-none d-lg-flex align-center">
           <v-col sm="auto">
-            <v-app-bar-nav-icon
-              class="d-block d-lg-none white--text"
+            <!-- <v-app-bar-nav-icon
+              class="d-lg-none white--text"
               @click.stop="drawer = !drawer"
-            ></v-app-bar-nav-icon
-          ></v-col>
-          <v-col>
+            ></v-app-bar-nav-icon> -->
             <nuxt-link class="white--text mr-4" to="/">Online shop</nuxt-link>
             <nuxt-link class="white--text" to="/">The e-gift card</nuxt-link>
           </v-col>
           <v-spacer></v-spacer>
-          <v-col>
+          <v-col sm="auto">
             <nuxt-link class="white--text" to="/"
               >The eshop is open, check our FAQ ></nuxt-link
             >
           </v-col>
         </v-row>
-        <!-- </v-col
-        > -->
-        <!-- <v-text-field
-        class="mx-4"
-        flat
-        hide-details
-        prepend-inner-icon="search"
-        solo
-      ></v-text-field> -->
-        <!-- <nuxt-link class="d-flex flex-column mx-2" to="/">
-        <v-icon>mdi-map-marker</v-icon>
-        <span>Магазины</span>
-      </nuxt-link>
-      <nuxt-link class="d-flex flex-column mx-2" to="/">
-        <v-icon>mdi-account</v-icon>
-        <span>Аккаунт</span>
-      </nuxt-link>
-      <nuxt-link class="d-flex flex-column mx-2" to="/">
-        <v-icon>mdi-heart</v-icon>
-        <span>Избранное</span>
-      </nuxt-link>
-      <nuxt-link class="d-flex flex-column mx-2" to="/">
-        <v-icon>mdi-cart</v-icon>
-        <span>Корзина</span>
-      </nuxt-link> -->
-        <!-- </v-row> -->
+        <v-row class="d-flex d-lg-none align-center">
+          <v-col sm="auto">
+            <v-app-bar-nav-icon
+              class="d-lg-none white--text"
+              @click.stop="drawer = !drawer"
+            ></v-app-bar-nav-icon>
+            <nuxt-link class="white--text mr-4" to="/">Online shop</nuxt-link>
+            <!-- <nuxt-link class="white--text" to="/">The e-gift card</nuxt-link> -->
+          </v-col>
+          <!-- <v-spacer></v-spacer>
+          <v-col sm="auto">
+            <nuxt-link class="white--text" to="/"
+              >The eshop is open, check our FAQ ></nuxt-link
+            >
+          </v-col> -->
+        </v-row>
       </v-container>
     </v-app-bar>
 
@@ -131,10 +126,12 @@
         <v-row class="mb-6" no-gutters>
           <v-col class="d-none d-lg-block" cols="2">
             <div class="sticky">
-              <v-img
-                src="https://www.jacadi.co.uk/_ui/desktop/assets/img/jacadi-logo-without-crown.svg"
-                width="139"
-              ></v-img>
+              <nuxt-link to="/">
+                <v-img
+                  src="https://www.jacadi.co.uk/_ui/desktop/assets/img/jacadi-logo-without-crown.svg"
+                  width="139"
+                ></v-img>
+              </nuxt-link>
               <v-navigation-drawer floating permanent>
                 <v-list dense>
                   <v-list-item @click="!drawer">
@@ -230,6 +227,65 @@
             </div>
           </v-col>
           <v-col cols="10">
+            <v-row no-gutters>
+              <v-col cols="6">
+                <v-text-field
+                  label="Search"
+                  append-icon="mdi-magnify"
+                  single-line
+                  outlined
+                  dense
+                ></v-text-field>
+              </v-col>
+              <v-spacer></v-spacer>
+              <v-col cols="6" sm="auto">
+                <nav class="d-none d-lg-block">
+                  <ul class="d-flex text-caption text-no-wrap">
+                    <nuxt-link to="/locations" class="d-flex flex-column mr-6">
+                      <v-icon>mdi-map-marker</v-icon>
+                      <span>Boutique Locations</span>
+                    </nuxt-link>
+                    <nuxt-link to="/account" class="d-flex flex-column mr-6">
+                      <v-icon>mdi-account</v-icon>
+                      <span>My Account</span>
+                    </nuxt-link>
+                    <nuxt-link to="/wishlist" class="d-flex flex-column mr-6">
+                      <v-icon>mdi-heart</v-icon>
+                      <span>Wishlist</span>
+                    </nuxt-link>
+                    <nuxt-link to="/cart" class="d-flex flex-column">
+                      <v-icon>mdi-cart</v-icon>
+                      <span>Shopping Bag</span>
+                    </nuxt-link>
+                  </ul>
+                </nav>
+                <nav class="d-lg-none">
+                  <ul class="d-flex text-caption text-no-wrap">
+                    <nuxt-link
+                      to="/locations"
+                      class="d-flex flex-column mr-2 mr-lg-6"
+                    >
+                      <v-icon>mdi-map-marker</v-icon>
+                    </nuxt-link>
+                    <nuxt-link
+                      to="/account"
+                      class="d-flex flex-column mr-2 mr-lg-6"
+                    >
+                      <v-icon>mdi-account</v-icon>
+                    </nuxt-link>
+                    <nuxt-link
+                      to="/wishlist"
+                      class="d-flex flex-column mr-2 mr-lg-6"
+                    >
+                      <v-icon>mdi-heart</v-icon>
+                    </nuxt-link>
+                    <nuxt-link to="/cart" class="d-flex flex-column">
+                      <v-icon>mdi-cart</v-icon>
+                    </nuxt-link>
+                  </ul>
+                </nav>
+              </v-col>
+            </v-row>
             <v-breadcrumbs :items="breadcrumbs">
               <template v-slot:divider>
                 <v-icon>mdi-chevron-right</v-icon>

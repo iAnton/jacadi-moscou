@@ -1,8 +1,17 @@
 <template>
   <v-app>
-    <v-navigation-drawer v-model="drawer" app disable-resize-watcher>
+    <v-navigation-drawer v-model="drawer" app clipped floating>
+      <v-row>
+        <v-col cols="12">
+          <v-img
+            src="https://www.jacadi.co.uk/_ui/desktop/assets/img/jacadi-logo-without-crown.svg"
+            width="139"
+            class="mx-auto"
+          ></v-img>
+        </v-col>
+      </v-row>
       <v-list dense>
-        <v-list-item @click="!drawer">
+        <!-- <v-list-item @click="!drawer">
           <v-list-item-content>
             <v-list-item-title>FAQ Covid-19</v-list-item-title>
           </v-list-item-content>
@@ -11,7 +20,7 @@
           <v-list-item-content>
             <v-list-item-title>#stayathome</v-list-item-title>
           </v-list-item-content>
-        </v-list-item>
+        </v-list-item> -->
         <v-list-group
           v-for="item in firstItems"
           :key="item.title"
@@ -42,13 +51,13 @@
         <v-list-item @click="!drawer">
           <v-list-item-content>
             <v-list-item-title class="red--text font-weight-bold"
-              >Sale</v-list-item-title
+              >Распродажа</v-list-item-title
             >
           </v-list-item-content>
         </v-list-item>
         <v-list-item @click="!drawer">
           <v-list-item-content>
-            <v-list-item-title>Occasion wear</v-list-item-title>
+            <v-list-item-title>Особый случай</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
         <v-list-group
@@ -84,45 +93,54 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar app color="#8798bf" class="white--text" elevation="0">
-      <v-container>
-        <v-row class="d-none d-lg-flex align-center">
-          <v-col sm="auto">
-            <!-- <v-app-bar-nav-icon
-              class="d-lg-none white--text"
-              @click.stop="drawer = !drawer"
-            ></v-app-bar-nav-icon> -->
-            <nuxt-link class="white--text mr-4" to="/">Online shop</nuxt-link>
-            <nuxt-link class="white--text" to="/">The e-gift card</nuxt-link>
-          </v-col>
-          <v-spacer></v-spacer>
-          <v-col sm="auto">
-            <nuxt-link class="white--text" to="/"
-              >The eshop is open, check our FAQ ></nuxt-link
-            >
-          </v-col>
-        </v-row>
-        <v-row class="d-flex d-lg-none align-center">
-          <v-col sm="auto">
-            <v-app-bar-nav-icon
-              class="d-lg-none white--text"
-              @click.stop="drawer = !drawer"
-            ></v-app-bar-nav-icon>
-            <nuxt-link class="white--text mr-4" to="/">Online shop</nuxt-link>
-            <!-- <nuxt-link class="white--text" to="/">The e-gift card</nuxt-link> -->
-          </v-col>
-          <!-- <v-spacer></v-spacer>
-          <v-col sm="auto">
+    <v-app-bar
+      app
+      clipped-left
+      color="#8798bf"
+      class="white--text"
+      elevation="0"
+    >
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-toolbar-title>
+        <nuxt-link class="white--text mr-4" to="/">Jacadi Москва</nuxt-link>
+      </v-toolbar-title>
+      <!-- <nuxt-link class="white--text" to="/">The e-gift card</nuxt-link> -->
+      <v-spacer></v-spacer>
+      <!-- <v-col>
             <nuxt-link class="white--text" to="/"
               >The eshop is open, check our FAQ ></nuxt-link
             >
           </v-col> -->
-        </v-row>
-      </v-container>
+      <!-- </v-col
+        > -->
+      <!-- <v-text-field
+        class="mx-4"
+        flat
+        hide-details
+        prepend-inner-icon="search"
+        solo
+      ></v-text-field> -->
+      <!-- <nuxt-link class="d-flex flex-column mx-2" to="/">
+        <v-icon>mdi-map-marker</v-icon>
+        <span>Магазины</span>
+      </nuxt-link>
+      <nuxt-link class="d-flex flex-column mx-2" to="/">
+        <v-icon>mdi-account</v-icon>
+        <span>Аккаунт</span>
+      </nuxt-link>
+      <nuxt-link class="d-flex flex-column mx-2" to="/">
+        <v-icon>mdi-heart</v-icon>
+        <span>Избранное</span>
+      </nuxt-link>
+      <nuxt-link class="d-flex flex-column mx-2" to="/">
+        <v-icon>mdi-cart</v-icon>
+        <span>Корзина</span>
+      </nuxt-link> -->
+      <!-- </v-row> -->
     </v-app-bar>
 
     <v-main>
-      <v-container>
+      <v-container fluid>
         <v-row class="mb-6" no-gutters>
           <v-col class="d-none d-lg-block" cols="2">
             <div class="sticky">
@@ -287,6 +305,8 @@
               </v-col>
             </v-row>
             <v-breadcrumbs :items="breadcrumbs">
+          <v-col cols="12">
+            <v-breadcrumbs :items="breadcrumbs" class="hidden-sm-and-down">
               <template v-slot:divider>
                 <v-icon>mdi-chevron-right</v-icon>
               </template>
@@ -343,93 +363,93 @@
 export default {
   data() {
     return {
-      drawer: false,
+      drawer: null,
       icons: ['mdi-facebook', 'mdi-twitter', 'mdi-linkedin', 'mdi-instagram'],
       firstItems: [
+        // {
+        //   title: 'Новости',
+        //   items: [
+        //     { title: 'Liberty' },
+        //     { title: 'Essentiels' },
+        //     { title: 'School Uniforms' },
+        //     { title: 'My first Jacadi' },
+        //     { title: 'Особый случай' }
+        //   ]
+        // },
         {
-          title: '#Jacadinews',
+          title: 'Новинки',
           items: [
-            { title: 'Liberty' },
-            { title: 'Essentiels' },
-            { title: 'School Uniforms' },
-            { title: 'My first Jacadi' },
-            { title: 'Occasion wear' }
-          ]
-        },
-        {
-          title: 'New Arrivals',
-          items: [
-            { title: 'Newborn' },
-            { title: 'Toddler' },
-            { title: 'Child' },
-            { title: 'Shoes' },
-            { title: 'Spring Summer collection' }
+            { title: 'Новорожденные' },
+            { title: 'Младенцы' },
+            { title: 'Дети' },
+            { title: 'Обувь' },
+            { title: 'Коллекция весна–лето' }
           ]
         }
       ],
       secondItems: [
         {
-          title: 'Newborn',
-          items: [{ title: 'Girls 1 to 12M' }, { title: 'Boys 1 to 12M' }]
+          title: 'Новорожденные',
+          items: [{ title: 'Девочки 1–12 мес' }, { title: 'Мальчики 1–12 мес' }]
         },
         {
-          title: 'Toddler',
-          items: [{ title: 'Girls 6 to 36m' }, { title: 'Boys 6 to 36m' }]
+          title: 'Младенцы',
+          items: [{ title: 'Девочки 6–36 мес' }, { title: 'Мальчики 6–36 мес' }]
         },
         {
-          title: 'Child',
-          items: [{ title: 'Girls 3 to 12y' }, { title: 'Boys 3 to 12y' }]
+          title: 'Дети',
+          items: [{ title: 'Девочки 3–12 лет' }, { title: 'Мальчики 3–12 лет' }]
         },
         {
-          title: 'Shoes',
-          items: [{ title: 'Girls' }, { title: 'Boys' }]
+          title: 'Обувь',
+          items: [{ title: 'Девочки' }, { title: 'Мальчики' }]
         }
       ],
       itemsNotGroup: [
+        // {
+        //   title: 'Home',
+        //   link: ''
+        // },
         {
-          title: 'Home',
+          title: 'Забота о коже',
           link: ''
         },
         {
-          title: 'Skincare & perfume',
+          title: 'Комплекты',
           link: ''
         },
+        // {
+        //   title: 'Подарки новорожденным',
+        //   link: ''
+        // },
         {
-          title: 'Inspiration',
-          link: ''
-        },
-        {
-          title: 'Newborn gifts',
-          link: ''
-        },
-        {
-          title: 'La Maison Jacadi',
+          title: 'История Jacadi',
           link: ''
         }
       ],
       breadcrumbs: [
         {
-          text: 'Home',
+          text: 'Главная',
           disabled: false,
           href: '/'
         },
         {
-          text: 'child',
+          text: 'Дети',
           disabled: false,
           href: '/'
         },
         {
-          text: 'child girl',
+          text: 'Девочки',
           disabled: false,
           href: '/'
         },
         {
-          text: 'swimwear',
+          text: 'Купальники',
           disabled: false,
           href: '/'
         },
         {
-          text: 'Girl UV protection t-shirt',
+          text: 'Детская футболка с УФ защитой',
           disabled: true,
           href: '/'
         }

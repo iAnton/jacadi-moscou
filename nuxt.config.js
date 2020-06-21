@@ -4,10 +4,11 @@ export default {
    ** Headers of the page
    */
   // router: {
-  //   base: '/online-shop/'
+  //   base: '/jacadi-moscou/'
   // },
   head: {
-    titleTemplate: '%s - ' + process.env.npm_package_name,
+    // titleTemplate: '%s - ' + 'Jacadi детская одежда',
+    titleTemplate: 'Jacadi детская одежда',
     title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
@@ -72,7 +73,7 @@ export default {
     // customVariables: ['~/assets/variables.scss'],
     defaultAssets: {
       font: {
-        family: 'Open Sans'
+        family: 'Marmelad'
       },
       icons: 'mdi'
     },

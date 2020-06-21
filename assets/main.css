@@ -8,8 +8,8 @@ a {
 }
 
 .border-tb {
-   border-top: 1px solid black;
-   border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 .j-icon {
@@ -20,10 +20,15 @@ a {
 
 .btn-cart {
   transition: all 0.3s ease-in;
+  font-weight: bold !important;
 }
 
 .btn-cart:hover {
   color: white;
+}
+
+.btn-text-initial {
+  text-transform: initial !important;
 }
 
 .border-color {
@@ -88,7 +93,7 @@ input[type='radio'] {
   background-color: #8798bf;
 }
 
-.radio-sizes--disabled label{
+.radio-sizes--disabled label {
   color: rgb(199, 199, 199);
 }
 
@@ -110,4 +115,8 @@ input[type='radio'] {
 
 .pointer {
   cursor: pointer;
+}
+
+.v-application--is-ltr .v-list-item__icon:last-of-type:not(:only-child) {
+  margin-left: 0 !important;
 }

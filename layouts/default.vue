@@ -149,6 +149,7 @@
             <v-row no-gutters>
               <v-col cols="6">
                 <v-text-field
+                  v-model="search"
                   label="Search"
                   append-icon="mdi-magnify"
                   single-line
@@ -217,34 +218,46 @@
         </v-row>
         <v-divider></v-divider>
         <v-row>
-          <v-col class="d-flex flex-column flex-lg-row align-center mx-4">
-            <v-icon class="pa-4">mdi-phone</v-icon>
-            <div class="d-flex flex-column text-center align-center">
-              <span>Customer service</span>
-              <nuxt-link to="/" class="d-none d-lg-block">Подробнее</nuxt-link>
+          <v-col class="d-flex justify-space-around">
+            <div class="d-flex flex-column flex-lg-row align-center mx-4">
+              <v-icon class="pa-4">mdi-phone</v-icon>
+              <div class="d-flex flex-column text-center align-center mx-4">
+                <span>Customer service</span>
+                <nuxt-link to="/" class="d-none d-lg-block"
+                  >Подробнее</nuxt-link
+                >
+              </div>
+            </div>
+            <div class="d-flex flex-column flex-lg-row align-center mx-4">
+              <v-icon class="pa-4">mdi-sync</v-icon>
+              <div class="d-flex flex-column text-center align-center mx-4">
+                <span>Free returns</span>
+                <nuxt-link to="/" class="d-none d-lg-block"
+                  >Подробнее</nuxt-link
+                >
+              </div>
             </div>
           </v-col>
-          <v-col class="d-flex flex-column flex-lg-row align-center mx-4"
-            ><v-icon class="pa-4">mdi-sync</v-icon>
-            <div class="d-flex flex-column text-center align-center">
-              <span>Free returns</span>
-              <nuxt-link to="/" class="d-none d-lg-block">Подробнее</nuxt-link>
-            </div></v-col
-          >
-          <v-col class="d-flex flex-column flex-lg-row align-center mx-4"
-            ><v-icon class="pa-4">mdi-train-car</v-icon>
-            <div class="d-flex flex-column text-center align-center">
-              <span>Free delivery over £50</span>
-              <nuxt-link to="/" class="d-none d-lg-block">Подробнее</nuxt-link>
-            </div></v-col
-          >
-          <v-col class="d-flex flex-column flex-lg-row align-center mx-4"
-            ><v-icon class="pa-4">mdi-lock</v-icon>
-            <div class="d-flex flex-column text-center align-center">
-              <span>Secure payment</span>
-              <nuxt-link to="/" class="d-none d-lg-block">Подробнее</nuxt-link>
-            </div></v-col
-          >
+          <v-col class="d-flex justify-space-around">
+            <div class="d-flex flex-column flex-lg-row align-center mx-4">
+              <v-icon class="pa-4">mdi-train-car</v-icon>
+              <div class="d-flex flex-column text-center align-center mx-4">
+                <span>Free delivery over £50</span>
+                <nuxt-link to="/" class="d-none d-lg-block"
+                  >Подробнее</nuxt-link
+                >
+              </div>
+            </div>
+            <div class="d-flex flex-column flex-lg-row align-center mx-4">
+              <v-icon class="pa-4">mdi-lock</v-icon>
+              <div class="d-flex flex-column text-center align-center mx-4">
+                <span>Secure payment</span>
+                <nuxt-link to="/" class="d-none d-lg-block"
+                  >Подробнее</nuxt-link
+                >
+              </div>
+            </div>
+          </v-col>
           <!-- <v-col
             class="d-flex flex-no-wrap justify-space-between align-content-center"
           >
@@ -589,6 +602,7 @@ export default {
   data() {
     return {
       drawer: null,
+      search: null,
       icons: ['mdi-facebook', 'mdi-twitter', 'mdi-linkedin', 'mdi-instagram'],
       firstItems: [
         // {

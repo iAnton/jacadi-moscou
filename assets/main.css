@@ -136,3 +136,8 @@ input[type='radio'] {
 .v-application--is-ltr .v-list-item__icon:last-of-type:not(:only-child) {
   margin-left: 0 !important;
 }
+
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}

@@ -590,10 +590,6 @@
         </div>
       </v-card>
     </v-footer>
-    <v-footer>
-      <v-spacer></v-spacer>
-      <div>&copy; {{ new Date().getFullYear() }}</div>
-    </v-footer>
   </v-app>
 </template>
 

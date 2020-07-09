@@ -33,6 +33,7 @@
           solo
           style="width: 300px"
           no-data-text="Нет фильтров"
+          :menu-props="{ closeOnContentClick: true }"
         ></v-select>
         <v-select
           v-model="filterColors"
@@ -47,6 +48,7 @@
           solo
           style="width: 300px"
           no-data-text="Нет фильтров"
+          :menu-props="{ closeOnContentClick: true }"
         >
           <template v-slot:item="{ item }">
             <v-chip :value="item" :color="item.hex" label>
@@ -70,6 +72,7 @@
           solo
           style="width: 300px"
           no-data-text="Нет фильтров"
+          :menu-props="{ closeOnContentClick: true }"
         ></v-select>
         <v-select
           v-model="filterDiscount"
@@ -82,6 +85,7 @@
           solo
           style="width: 300px"
           no-data-text="Нет фильтров"
+          :menu-props="{ closeOnContentClick: true }"
         ></v-select>
         <v-select
           :items="filterBy"
@@ -90,9 +94,10 @@
           hide-details
           solo
           style="width: 300px"
+          :menu-props="{ closeOnContentClick: true }"
         ></v-select>
       </v-col>
-      <v-col class="d-flex flex-column flex-md-row align-center py-6">
+      <v-col class="d-flex flex-wrap align-center py-6">
         <span class="mr-2 pa-2 pl-0"
           >Найдено {{ alsoItems.length }} вещей:</span
         >
@@ -136,20 +141,20 @@
         >
           {{ disc }}
         </v-chip>
-        <v-chip
+        <v-btn
           v-if="
             filterSizes.length ||
               filterColors.length ||
               filterGender.length ||
               filterDiscount.length
           "
-          class="mr-2 mb-2"
-          close
-          label
-          @click:close="remove"
+          class="white--text mr-2 mb-2"
+          tile
+          color="#8798bf"
+          elevation="0"
+          @click="remove"
+          >Очистить фильтр</v-btn
         >
-          Очистить фильтр
-        </v-chip>
       </v-col>
       <v-divider></v-divider>
       <v-col class="d-none d-md-flex flex-wrap">

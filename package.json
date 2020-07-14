@@ -17,7 +17,6 @@
   "dependencies": {
     "@mdi/font": "^5.3.45",
     "@nuxtjs/axios": "^5.3.6",
-    "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/pwa": "^3.0.0-0",
     "gh-pages": "^3.0.0",
     "import": "0.0.6",

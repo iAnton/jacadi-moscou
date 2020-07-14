@@ -200,124 +200,101 @@
         </v-card>
       </v-col>
     </v-row>
-    <!-- <v-row class="d-flex flex-column mb-4">
+    <v-row class="d-flex flex-column mb-lg-4">
       <v-col class="text-center"><h3>Вам также может понравится</h3></v-col>
-      <v-col class="d-flex justify-space-between">
-        <v-card class="mx-auto" max-width="300">
-          <v-img
-            src="https://www.hallmark.com/dw/image/v2/AALB_PRD/on/demandware.static/-/Sites-hallmark-master/default/dw53dfd4ab/images/finished-goods/Hi-Im-New-Here-Infant-Bodysuit_1SHT2036_01.jpg?sw=512&sh=512&sm=fit"
-            height="200px"
-          ></v-img>
+      <v-col>
+        <v-slide-group v-model="alsoControl" show-arrows="always">
+          <v-slide-item v-for="(item, index) in alsoItems" :key="index">
+            <v-card
+              class="ma-lg-4"
+              max-width="260"
+              elevation="0"
+              @click="$router.push('/')"
+            >
+              <v-img :src="item.src" height="200px">
+                <div class="d-flex justify-space-between pa-2">
+                  <v-icon>mdi-heart-outline</v-icon>
+                  <span v-if="item.sale" class="sale-price">-40%</span>
+                </div>
+              </v-img>
 
-          <v-card-title>
-            Название товара
-          </v-card-title>
+              <v-card-title>
+                <v-spacer></v-spacer>
+                {{ item.title }}
+              </v-card-title>
 
-          <v-card-subtitle>
-            Цена: 100 руб
-          </v-card-subtitle>
+              <v-card-subtitle class="d-flex justify-end">
+                <span class="text-decoration-line-through grey--text"
+                  >{{ item.price }} р.</span
+                >
+                <span class="ml-2"
+                  >{{ item.salePrice }} р.</span
+                ></v-card-subtitle
+              >
+            </v-card>
+            <!-- <v-card
+              :color="active ? 'primary' : 'grey lighten-1'"
+              class="ma-4"
+              height="200"
+              width="100"
+              @click="toggle"
+            >
+              <v-row class="fill-height" align="center" justify="center">
+                <v-scale-transition>
+                  <v-icon
+                    v-if="active"
+                    color="white"
+                    size="48"
+                    v-text="'mdi-close-circle-outline'"
+                  ></v-icon>
+                </v-scale-transition>
+              </v-row>
+            </v-card> -->
+          </v-slide-item>
+        </v-slide-group>
+        <!-- <v-carousel
+          cycle
+          height="300"
+          hide-delimiter-background
+          show-arrows-on-hover
+        >
+          <v-carousel-item>
+            <v-row class="d-flex">
+              <v-card
+                v-for="(item, index) in alsoItems"
+                :key="index"
+                elevation="0"
+                class="mx-auto"
+                light
+                max-width="300"
+                @click="$router.push('/')"
+              >
+                <v-img :src="item.src" height="200px">
+                  <div class="d-flex justify-space-between pa-2">
+                    <v-icon>mdi-heart-outline</v-icon>
+                    <span v-if="item.sale" class="sale-price">-40%</span>
+                  </div>
+                </v-img>
 
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="gray" text>
-              Посмотреть
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-        <v-card class="mx-auto" max-width="300">
-          <v-img
-            src="https://yolostore.nz/wp-content/uploads/2017/09/vintage-baby-clothes-600x600.png"
-            height="200px"
-          ></v-img>
+                <v-card-title>
+                  <v-spacer></v-spacer>
+                  {{ item.title }}
+                </v-card-title>
 
-          <v-card-title>
-            Название товара
-          </v-card-title>
-
-          <v-card-subtitle>
-            Цена: 100 руб
-          </v-card-subtitle>
-
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="gray" text>
-              Посмотреть
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-        <v-card class="mx-auto" max-width="300">
-          <v-img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT1vBvWodFO381qFugKl8ctyQ5gyfIpBzEjAunV4NZpoXaHBXox&usqp=CAU"
-            height="200px"
-          ></v-img>
-
-          <v-card-title>
-            Название товара
-          </v-card-title>
-
-          <v-card-subtitle>
-            Цена: 100 руб
-          </v-card-subtitle>
-
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="gray" text>
-              Посмотреть
-            </v-btn>
-          </v-card-actions>
-        </v-card>
+                <v-card-subtitle class="d-flex justify-end">
+                  <span class="text-decoration-line-through grey--text"
+                    >{{ item.price }} р.</span
+                  >
+                  <span class="ml-2"
+                    >{{ item.salePrice }} р.</span
+                  ></v-card-subtitle
+                >
+              </v-card>
+            </v-row>
+          </v-carousel-item>
+        </v-carousel> -->
       </v-col>
     </v-row>
-    <v-divider></v-divider>
-    <v-row>
-      <v-col class="d-flex justify-space-around">
-        <div class="d-flex align-center">
-          <v-icon class="pa-4">mdi-phone</v-icon>
-          <div class="d-flex flex-column">
-            <span>Поддержка</span>
-            <nuxt-link to="/">Подробнее</nuxt-link>
-          </div>
-        </div>
-        <div class="d-flex align-center">
-          <v-icon class="pa-4">mdi-sync</v-icon>
-          <div class="d-flex flex-column">
-            <span>Бесплатный возврат товара</span>
-            <nuxt-link to="/">Подробнее</nuxt-link>
-          </div>
-        </div>
-        <div class="d-flex align-center">
-          <v-icon class="pa-4">mdi-train-car</v-icon>
-          <div class="d-flex flex-column">
-            <span>Бесплатная доставка</span>
-            <nuxt-link to="/">Подробнее</nuxt-link>
-          </div>
-        </div>
-        <div class="d-flex align-center">
-          <v-icon class="pa-4">mdi-lock</v-icon>
-          <div class="d-flex flex-column">
-            <span>Защищенные платежи</span>
-            <nuxt-link to="/">Подробнее</nuxt-link>
-          </div>
-        </div>
-      </v-col>
-    </v-row>
-    <v-divider></v-divider>
-    <v-row>
-      <v-col class="d-flex justify-space-around">
-        <div class="d-flex flex-column align-center">
-          <h3 class="mb-2">Подписаться на рассылку</h3>
-          <v-text-field label="E-mail" outlined></v-text-field>
-          <v-btn color="light-blue accent-2">Подписаться</v-btn>
-        </div>
-        <div class="d-flex flex-column align-center">
-          <h3 class="mb-2">Наши магазины</h3>
-          <span class="grey--text mb-4">
-            Найти ближайшие магазины в вашем городе
-          </span>
-          <v-btn color="light-blue accent-2">Найти</v-btn>
-        </div>
-      </v-col>
-    </v-row> -->
   </div>
 </template>
 
@@ -393,7 +370,82 @@ export default {
       opened: {
         description: false,
         composition: false
-      }
+      },
+      alsoControl: null,
+      alsoItems: [
+        {
+          title: 'Футболка',
+          price: '10.00',
+          salePrice: '5.00',
+          sale: false,
+          src:
+            'https://www.hallmark.com/dw/image/v2/AALB_PRD/on/demandware.static/-/Sites-hallmark-master/default/dw53dfd4ab/images/finished-goods/Hi-Im-New-Here-Infant-Bodysuit_1SHT2036_01.jpg?sw=512&sh=512&sm=fit'
+        },
+        {
+          title: 'Футболка',
+          price: '20.00',
+          salePrice: '10.00',
+          sale: false,
+          src:
+            'https://yolostore.nz/wp-content/uploads/2017/09/vintage-baby-clothes-600x600.png'
+        },
+        {
+          title: 'Футболка',
+          price: '15.00',
+          salePrice: '10.00',
+          sale: true,
+          src:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT1vBvWodFO381qFugKl8ctyQ5gyfIpBzEjAunV4NZpoXaHBXox&usqp=CAU'
+        },
+        {
+          title: 'Шорты',
+          price: '25.00',
+          salePrice: '15.00',
+          sale: true,
+          src:
+            'https://www.jacadi.co.uk/medias/sys_master/images/images/hc0/h0c/9233941659678/2021197-123-JH.jpg'
+        },
+        {
+          title: 'Шорты',
+          price: '25.00',
+          salePrice: '15.00',
+          sale: true,
+          src:
+            'https://www.jacadi.co.uk/medias/sys_master/images/images/hc0/h0c/9233941659678/2021197-123-JH.jpg'
+        },
+        {
+          title: 'Шорты',
+          price: '25.00',
+          salePrice: '15.00',
+          sale: true,
+          src:
+            'https://www.jacadi.co.uk/medias/sys_master/images/images/hc0/h0c/9233941659678/2021197-123-JH.jpg'
+        },
+        {
+          title: 'Шорты',
+          price: '25.00',
+          salePrice: '15.00',
+          sale: true,
+          src:
+            'https://www.jacadi.co.uk/medias/sys_master/images/images/hc0/h0c/9233941659678/2021197-123-JH.jpg'
+        },
+        {
+          title: 'Шорты',
+          price: '25.00',
+          salePrice: '15.00',
+          sale: true,
+          src:
+            'https://www.jacadi.co.uk/medias/sys_master/images/images/hc0/h0c/9233941659678/2021197-123-JH.jpg'
+        },
+        {
+          title: 'Шорты',
+          price: '25.00',
+          salePrice: '15.00',
+          sale: true,
+          src:
+            'https://www.jacadi.co.uk/medias/sys_master/images/images/hc0/h0c/9233941659678/2021197-123-JH.jpg'
+        }
+      ]
     }
   },
   methods: {

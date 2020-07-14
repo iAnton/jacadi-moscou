@@ -3,11 +3,14 @@ export default {
   /*
    ** Headers of the page
    */
-  // router: {
-  //   base: '/jacadi-moscou/'
-  // },
+  router: {
+    base: '/online-shop/'
+  },
   head: {
     // titleTemplate: '%s - ' + 'Jacadi детская одежда',
+    htmlAttrs: {
+      lang: 'ru'
+    },
     titleTemplate: 'Jacadi детская одежда',
     title: process.env.npm_package_name || '',
     meta: [
@@ -56,10 +59,8 @@ export default {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
+    '@nuxtjs/axios'
     // '@nuxtjs/pwa',
-    // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
   ],
   /*
    ** Axios module configuration
